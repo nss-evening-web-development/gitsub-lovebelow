@@ -4,7 +4,10 @@ body {
 
 #pinned {
     display: flex;
+<<<<<<< HEAD
     flex: wrap;
+=======
+>>>>>>> main
 }
 
 #overviewpage {
