@@ -8,6 +8,10 @@ import { repoFormonDom } from "./components/form.js";
 import {packages} from "./data/reference.js";
 import {packageCard} from "./components/card.js";
 import {packagesForm} from "./components/form.js";
+import { overviewCard } from "./components/card.js";
+import { formOnDom } from "./components/form.js";
+import { repoList } from "./data/reference.js";
+import { renderToDom } from "./utils/renderToDom.js";
 
 //function to get the cards on the DOM
 // .forEach()
@@ -48,10 +52,7 @@ form.addEventListener("submit", addRepo);
 // 	renderToDom(repoList);
 // };
 // StartApp();
-import { overviewCard } from "./components/card.js";
-import { formOnDom } from "./components/form.js";
-import { repoList } from "./data/reference.js";
-import { renderToDom } from "./utils/renderToDom.js";
+
 
 
 const renderOverviewCards = (array) => {
@@ -73,7 +74,7 @@ const formOverview = () => {
 formOverview(formOnDom)
 
 
-const createId = (array) => {
+const createOverviewId = (array) => {
   if (array.length) {
     const idArray = [];
     for (const el of array) {
