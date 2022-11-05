@@ -14,7 +14,6 @@ export const card = (object) => {
 
 export const packageCard = (object) => {
   return `
-
   <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${object.name}</h5>

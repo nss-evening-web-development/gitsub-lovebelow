@@ -19,4 +19,3 @@ export const packagesForm =
 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 <button type="submit" class="btn btn-primary mb-3">Create Project</button>
 </div>`;
-   
