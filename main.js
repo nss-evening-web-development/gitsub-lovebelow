@@ -3,6 +3,9 @@ console.log('Love!')
 import {packages} from "./data/reference.js";
 import {packageCard} from "./components/card.js";
 import {packagesForm} from "./components/form.js";
+import { renderToDom } from "./utils/renderToDom.js";
+import { projectList } from "./data/reference.js";
+import { projectFormOnDom } from "./components/form.js";
 
 
 const renderProjectCards = (array) => {
