@@ -30,15 +30,15 @@ export const card = (object) => {
 
 
 
-export const packageCard = (obj) => {
+export const packageCard = (object) => {
   return `
 
   <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${obj.name}</h5>
-    <p class="card-text">${obj.description}</p>
-    <a href="#" id="create-proj" class="btn btn-primary">Learn more</a>
-  </div>
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div
 </div>
   `;
 };
