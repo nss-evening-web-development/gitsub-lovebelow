@@ -2,14 +2,19 @@
 
 
 export const projectFormOnDom = () => {
-  const domString = `
+   const domString = `
   <div class="form-floating mb-3">
   <input type="text" class="form-control" id="name" placeholder="Name" required>
   <label for="floatingInput">Name</label>
 </div>
+<div class="form-floating mb-3">
+<input type="text" class="form-control" id="description" placeholder="Project Description" required>
+<label for="floatingInput">Project Description</label>
+</div>
 
 <button type="submit" class="btn btn-success">Add New Project</button>
-`;
+`
+return domString
 }
 //<div class="form-floating">
   //<input type="text" class="form-control" id="description" placeholder="Description" required>

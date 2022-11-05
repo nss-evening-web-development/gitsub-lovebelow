@@ -2,33 +2,35 @@ import { projectList } from "./data/reference.js"
 import { renderToDom } from "./utils/renderToDom.js"
 import { projectCard } from "./components/card.js";
 import { projectFormOnDom } from "./components/form.js"
+import {packages} from "./data/reference.js";
+import {packageCard} from "./components/card.js";
+import {packagesForm} from "./components/form.js";
 
 const renderProjectCards = (array) => {
-  let refStuff = "<h1 class='text-white'>Projects</h1>";
+    let refStuff = "<h1 class='text-white'>Projects</h1>";
 
-  array.forEach(item => {
+    array.forEach(item => {
     refStuff += projectCard(item)
-  })
+    })
 
-  renderToDom("#project-cards", refStuff)
+    renderToDom("#project-cards", refStuff)
 };
 
 renderProjectCards(projectList)
 
 const projectListFormLogic = () => {
-  const projectForm = document.querySelector("#project-list")
+    const projectForm = document.querySelector("#project-list")
 
-  projectForm.addEventListener("submit", (event) => {
+    projectForm.addEventListener("submit", (event) => {
     event.preventDefault();
-  
     const newProject = {
-      id: projectList.length + 1,
-      name: document.querySelector("#name").value,
-      description: document.querySelector("#description").value
-      };
+        id: projectList.length + 1,
+        name: document.querySelector("#name").value,
+        description: document.querySelector("#description").value
+        };
 
-      projectList.push(newProject);
-      renderProjectCards(projectList);
+        projectList.push(newProject);
+        renderProjectCards(projectList);
 })
 };
 
@@ -37,10 +39,6 @@ projectListFormLogic()
 renderToDom("#project-form", projectFormOnDom )
 renderProjectCards(projectList)
 
-
-import {packages} from "./data/reference.js";
-import {packageCard} from "./components/card.js";
-import {packagesForm} from "./components/form.js";
 
 
 const renderCards = (array) => {
