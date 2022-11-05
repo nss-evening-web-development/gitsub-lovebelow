@@ -10,25 +10,25 @@
 
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     
     <div id="navigation">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Overview<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Overview</a>
                 <a class="nav-item nav-link" href="#">Repositories</a>
                 <a class="nav-item nav-link" href="#">Projects</a>
                 <a class="nav-item nav-link" href="#">Packages</a>
-                <a class="nav-item nav-link" href="#">Stars</a>
+                <a class="nav-item nav-link" id="starButton" href="#">Stars</a>
               </div>
             </div>
           </nav>
-    </div>
+      </div>
         
     <div id="overviewpage">
         <div id="profile">
@@ -45,11 +45,11 @@
                 <p></p><a href="https://nickelodeon.fandom.com/wiki/DoodleBob"> Website</a></p>
             </div>
         </div>
-        <div id="form-submit">
-          <div id="pinned"></div>
-          <form id="form"></form>
-        </div>
-        
+        <div id="pinned"></div>
+        <div id="new-project"></div>
+        <div id="stars"></div>
+        <div id="starsForm"></div>
+
     </div>
     <div id="package-page"></div>
     <div id="package-form"></div>
@@ -58,6 +58,7 @@
 			<form id="repoform"></form>
 			<div id="cards"></div>
 		</div>
+
 
 
 
