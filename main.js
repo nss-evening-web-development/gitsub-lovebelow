@@ -1,8 +1,13 @@
-
-
+//IMPORTS
+import { renderToDom } from "./utils/renderToDom.js";
+import { starCard } from "./components/card.js";
+import { starForm } from "./components/form.js";
 import { repoList } from "./data/reference.js";
 import { card } from "./components/card.js";
 import { repoFormonDom } from "./components/form.js";
+import {packages} from "./data/reference.js";
+import {packageCard} from "./components/card.js";
+import {packagesForm} from "./components/form.js";
 
 //function to get the cards on the DOM
 // .forEach()
@@ -44,6 +49,7 @@ form.addEventListener("submit", addRepo);
 // };
 // StartApp();
 
+//STARS//
 console.log('Love!')
 
 //QUERY SELECTORS
@@ -51,12 +57,6 @@ const stars = document.querySelector(`#stars`);
 const starsForm = document.querySelector('#starsForm');
 const submitButton = document.querySelector('#submit');
 const starButton = document.querySelector(`#starButton`);
-
-//IMPORTS
-import { renderToDom } from "./utils/renderToDom.js";
-import { repoList } from "./data/reference.js";
-import { starCard } from "./components/card.js";
-import { starForm } from "./components/form.js";
 
 //CARD RENDER
 const renderStars = (array) => {
@@ -122,11 +122,6 @@ stars.addEventListener('click', (e) => {
 });
 
 //PACKAGES//
-import {packages} from "./data/reference.js";
-import {packageCard} from "./components/card.js";
-import {packagesForm} from "./components/form.js";
-
-
 const renderCards = (array) => {
     let refStuff = "";
 
