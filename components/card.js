@@ -3,26 +3,27 @@
 export const card = (object) => {
 
 	return `
-
-  
-
   <div class="card">
   <h5 class="card-header">${object.name}</h5>
   <div class="card-body">
     <h5 class="card-title">${object.description}</h5>
     <p class="card-text"></p>
-    
-  </div>
+    </div>
 </div>
   `;
 };
-
-
-
-
+export const starCard = (object) => {
+  return `<div class="card">
+  <h5 class="card-header">${object.name}</h5>
+  <div class="card-body">
+    <p class="card-text">${object.description}</p>
+    <button id="delete--${object.id}" class="btn btn-primary">&#x2605;Remove Star</button>
+  </div>
+</div>
+  `
+}
 export const packageCard = (obj) => {
   return `
-
   <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${obj.name}</h5>
@@ -42,5 +43,5 @@ export const projectCard = (object) => {
     <a href="#" id= "${object.id}" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
-  `
-}
+  `;
+};
