@@ -24,6 +24,7 @@ const projectListFormLogic = () => {
     const newProject = {
       id: projectList.length + 1,
       name: document.querySelector("#name").value,
+      description: document.querySelector("#description").value
       };
 
       projectList.push(newProject);

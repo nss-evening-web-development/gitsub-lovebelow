@@ -2,22 +2,22 @@ export const projectList = [
   {
     id: 1,
     name: "Martin's Aquarium",
-   // description: "Pet store specializing in exotic fish."
+    description: "Pet store specializing in exotic fish."
   },
   {
     id: 2,
     name: "Coffee Houses",
-    //description: "Comprehensive map of coffee houses in Nashville.",
+    description: "Comprehensive map of coffee houses in Nashville.",
   },
   {
     id: 3,
     name: "Backyard Garden App",
-    //description: "App to maximize space in small, backyard gardens.",
+    description: "App to maximize space in small, backyard gardens.",
   },
   {
     id: 4,
     name: "Liquor License",
-    //description: "App to help the at home bartender create delicious libations",
+    description: "App to help the at home bartender create delicious libations",
   },
 ];
 
