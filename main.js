@@ -1,17 +1,10 @@
-//IMPORTS
-import { renderToDom } from "./utils/renderToDom.js";
-import { starCard } from "./components/card.js";
-import { starForm } from "./components/form.js";
 import { repoList } from "./data/reference.js";
 import { card } from "./components/card.js";
 import { repoFormonDom } from "./components/form.js";
 import {packages} from "./data/reference.js";
 import {packageCard} from "./components/card.js";
+import {renderToDom} from "./utils/renderToDom.js";
 import {packagesForm} from "./components/form.js";
-import { overviewCard } from "./components/card.js";
-import { formOnDom } from "./components/form.js";
-import { repoList } from "./data/reference.js";
-import { renderToDom } from "./utils/renderToDom.js";
 
 //function to get the cards on the DOM
 // .forEach()
@@ -53,8 +46,10 @@ form.addEventListener("submit", addRepo);
 // };
 // StartApp();
 
+console.log('Love!')
 
 
+//render overview cards to DOM
 const renderOverviewCards = (array) => {
   let refStuff = "";
 
@@ -85,6 +80,27 @@ const createOverviewId = (array) => {
     return 0;
   }
 }
+
+const overviewForm = document.querySelector('form');
+
+const createPin = (event) => {
+  event.preventDefault();
+
+const newPin = {
+  id: createOverviewId(repoList),
+  name: document.querySelector("#name").value,
+  description: document.querySelector("#description").value,
+};
+
+console.log(newPin);
+repoList.push(newPin);
+renderOverviewCards(repoList);
+
+overviewForm.reset();
+}
+
+overviewForm.addEventListener('submit', createPin);
+
 
 
 //QUERY SELECTORS
