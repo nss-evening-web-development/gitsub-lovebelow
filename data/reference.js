@@ -22,43 +22,6 @@ export const projectList = [
 ];
 
 export const repoList = [
-<<<<<<< HEAD
-  {
-    id: 1,
-    name: "repo1",
-    description:"description",
-    starred: true,
-    pinned: true,
-  },
-  {
-    id: 2,
-    name: "repo2",
-    description:"description",
-    starred: false,
-    pinned: true,
-  },
-  {
-    id: 3,
-    name: "repo3",
-    description:"description",
-    starred: true,
-    pinned: false,
-  },
-  {
-    id: 4,
-    name: "repo4",
-    description:"description",
-    starred: false,
-    pinned: false,
-  },
-  {
-    id: 5,
-    name: "repo5",
-    description:"description",
-    starred: false,
-    pinned: true,
-  },
-=======
 	{
 		id: 1,
 		name: "repo1",
@@ -94,7 +57,6 @@ export const repoList = [
 		starred: false,
 		pinned: true,
 	},
->>>>>>> main
 ];
 
 export const packages = [
