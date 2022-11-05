@@ -10,8 +10,6 @@ export const projectFormOnDom = () => {
 
 <button type="submit" class="btn btn-success">Add New Project</button>
 `;
-
-  
 }
 //<div class="form-floating">
   //<input type="text" class="form-control" id="description" placeholder="Description" required>
