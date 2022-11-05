@@ -1,6 +1,6 @@
 //Bootstrap cards: https://getbootstrap.com/docs/4.0/components/card/
 
-export const card = (object) => {
+export const overviewCard = (object) => {
   return `
   <div class="card">
   <h5 class="card-header">Pinned</h5>
