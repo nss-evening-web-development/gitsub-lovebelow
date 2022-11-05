@@ -1,30 +1,76 @@
 console.log('Love!')
 
+//QUERY SELECTORS
+const stars = document.querySelector(`#stars`);
+const form = document.querySelector('#starsForm');
+const submitButton = document.querySelector('#submit');
+const starButton = document.querySelector(`#starButton`);
+
 //IMPORTS
-import { renderToDom } from "./utils/renderToDom";
-import {  } from "module";
+import { renderToDom } from "./utils/renderToDom.js";
+import { repoList } from "./data/reference.js";
+import { starCard } from "./components/card.js";
+import { starForm } from "./components/form.js";
 
 //CARD RENDER
-const dataOnDom = (array) => {
-  let domString = "";
-  for (const repo of array) {
-    domString += `<div class="card text-center ${repo.name}" style="width: 12rem;">
-    <div class="card-body">
-      <h5 class="card-title">${repo.name}</h5>
-      <p class="card-text">${repo.description}</p>
-    </div>
-  </div>`;
+const renderStars = (array) => {
+  let refStuff = "";
+  array.forEach((item) => {
+    refStuff += starCard(item);
+  })
+  renderToDom(`#stars`, refStuff);
+}
+
+//CREATE ID
+const createId = (array) => {
+  if (array.length) {
+    const idArray = array.map(el => el.id);
+    return Math.max(...idArray) + 1;
+  } else {
+    return 0;
   }
-  renderToDom("#studentContainer", domString);
 }
 
 //STARRED REPOS
-function starredRepos(array, typeString) {
-  const repoStars = [];
-  for (const repo of array) {
-    if (repo.starred === true) {
-      repoStars.push(repo);
+const starredRepos = repoList.filter(repo => repo.starred === true);
+
+// renderStars(starredRepos);//STAR BUTTON + FORM RENDER
+starButton.addEventListener('click', () => {
+  starForm();
+  renderStars(starredRepos);
+})
+
+//CREATNG NEW STARRED REPOS
+const createStar = (e) => {
+  e.preventDefault();
+    const newStar = {
+      id: createId(starredRepos),
+      name: document.querySelector('#starName').value,
+      description: document.querySelector(`#starDescription`).value,
+      starred: true,
+      pinned: false
     }
-  }
-  return repoStars;
+  starredRepos.push(newStar);
+  document.querySelector('#submitStar').reset();
+
+  console.log(repoList);
+  console.log(starredRepos);
+
+  renderStars(starredRepos);
 }
+
+//SUBMIT EVENT LISTENER
+form.addEventListener('submit', createStar);
+
+//REMOVE STAR
+stars.addEventListener('click', (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+
+    const index = starredRepos.findIndex(e => e.id === Number(id));
+    const removed = starredRepos.splice(index, 1);
+
+    starForm();
+    renderStars(starredRepos);
+  }
+});

@@ -1,13 +1,11 @@
 //Bootstrap cards: https://getbootstrap.com/docs/4.0/components/card/
 
-export const card = (Object) => {
-  return `
-  <div class="card">
-  <h5 class="card-header">Featured</h5>
+export const starCard = (object) => {
+  return `<div class="card">
+  <h5 class="card-header">${object.name}</h5>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">${object.description}</p>
+    <button id="delete--${object.id}" class="btn btn-primary">&#x2605;Remove Star</button>
   </div>
 </div>
   `
