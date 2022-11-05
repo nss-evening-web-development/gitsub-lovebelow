@@ -75,10 +75,9 @@ stars.addEventListener('click', (e) => {
   }
 });
 
-
+//PACKAGES//
 import {packages} from "./data/reference.js";
 import {packageCard} from "./components/card.js";
-import {renderToDom} from "./utils/renderToDom.js";
 import {packagesForm} from "./components/form.js";
 
 
