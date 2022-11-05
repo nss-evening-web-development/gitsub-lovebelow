@@ -48,7 +48,7 @@ console.log('Love!')
 
 //QUERY SELECTORS
 const stars = document.querySelector(`#stars`);
-const form = document.querySelector('#starsForm');
+const starsForm = document.querySelector('#starsForm');
 const submitButton = document.querySelector('#submit');
 const starButton = document.querySelector(`#starButton`);
 
@@ -106,7 +106,7 @@ const createStar = (e) => {
 }
 
 //SUBMIT EVENT LISTENER
-form.addEventListener('submit', createStar);
+starsForm.addEventListener('submit', createStar);
 
 //REMOVE STAR
 stars.addEventListener('click', (e) => {
