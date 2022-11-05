@@ -5,7 +5,7 @@ import { repoList } from "./data/reference.js";
 import { renderToDom } from "./utils/renderToDom.js";
 
 
-const renderCards = (array) => {
+const renderOverviewCards = (array) => {
   let refStuff = "";
 
   array.forEach((item) => {
@@ -13,7 +13,7 @@ const renderCards = (array) => {
   })
   renderToDom("#pinned", refStuff);
 };
-renderCards(repoList);
+renderOverviewCards(repoList);
 
 
 const formFill = () => {
@@ -49,7 +49,7 @@ const newPin = {
 
 console.log(newPin);
 repoList.push(newPin);
-renderCards(repoList);
+renderOverviewCards(repoList);
 
 form.reset();
 }
