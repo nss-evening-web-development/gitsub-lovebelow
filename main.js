@@ -4,6 +4,7 @@ import {packages} from "./data/reference.js";
 import {packageCard} from "./components/card.js";
 import {packagesForm} from "./components/form.js";
 
+
 const renderProjectCards = (array) => {
     let refStuff = "<h1 class='text-white'>Projects</h1>";
 
