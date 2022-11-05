@@ -13,6 +13,7 @@ export const card = (object) => {
   `;
 };
 
+
 export const starCard = (object) => {
   return `<div class="card">
   <h5 class="card-header">${object.name}</h5>

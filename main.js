@@ -48,9 +48,43 @@ form.addEventListener("submit", addRepo);
 // 	renderToDom(repoList);
 // };
 // StartApp();
+import { overviewCard } from "./components/card.js";
+import { formOnDom } from "./components/form.js";
+import { repoList } from "./data/reference.js";
+import { renderToDom } from "./utils/renderToDom.js";
 
-//STARS//
-console.log('Love!')
+
+const renderOverviewCards = (array) => {
+  let refStuff = "";
+
+  array.forEach((item) => {
+    refStuff += overviewCard(item);
+  })
+  renderToDom("#pinned", refStuff);
+};
+renderOverviewCards(repoList);
+
+
+const formOverview = () => {
+  const domString = formOnDom;
+
+  renderToDom('#form', domString)
+};
+formOverview(formOnDom)
+
+
+const createId = (array) => {
+  if (array.length) {
+    const idArray = [];
+    for (const el of array) {
+      idArray.push(el.id);
+    }
+    return Math.max(...idArray) + 1;
+  } else {
+    return 0;
+  }
+}
+
 
 //QUERY SELECTORS
 const stars = document.querySelector(`#stars`);
