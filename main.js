@@ -54,7 +54,7 @@ form.addEventListener("submit", addRepo);
 // StartApp();
 
 
-
+//render overview cards to DOM
 const renderOverviewCards = (array) => {
   let refStuff = "";
 
@@ -65,14 +65,13 @@ const renderOverviewCards = (array) => {
 };
 renderOverviewCards(repoList);
 
-
+//render form to DOM
 const formOverview = () => {
   const domString = formOnDom;
 
   renderToDom('#form', domString)
 };
 formOverview(formOnDom)
-
 
 const createOverviewId = (array) => {
   if (array.length) {
@@ -85,6 +84,27 @@ const createOverviewId = (array) => {
     return 0;
   }
 }
+
+const overviewForm = document.querySelector('form');
+
+const createPin = (event) => {
+  event.preventDefault();
+
+const newPin = {
+  id: createOverviewId(repoList),
+  name: document.querySelector("#name").value,
+  description: document.querySelector("#description").value,
+};
+
+console.log(newPin);
+repoList.push(newPin);
+renderOverviewCards(repoList);
+
+form.reset();
+}
+
+form.addEventListener('submit', createPin);
+
 
 
 //QUERY SELECTORS
