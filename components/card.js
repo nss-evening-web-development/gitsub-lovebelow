@@ -1,11 +1,21 @@
 //Bootstrap cards: https://getbootstrap.com/docs/4.0/components/card/
 
+export const overviewCard = (object) => {
+
+	return `
+  <div class="card">
+  <h5 class="card-header">${object.name}</h5>
+  <div class="card-body">
+    <h5 class="card-title">${object.description}</h5>
+    <p class="card-text"></p>
+    
+  </div>
+</div>
+  `;
+};
 export const card = (object) => {
 
 	return `
-
-  
-
   <div class="card">
   <h5 class="card-header">${object.name}</h5>
   <div class="card-body">
