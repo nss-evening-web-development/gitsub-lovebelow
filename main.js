@@ -1,8 +1,13 @@
-
-
+//IMPORTS
+import { renderToDom } from "./utils/renderToDom.js";
+import { starCard } from "./components/card.js";
+import { starForm } from "./components/form.js";
 import { repoList } from "./data/reference.js";
 import { card } from "./components/card.js";
 import { repoFormonDom } from "./components/form.js";
+import {packages} from "./data/reference.js";
+import {packageCard} from "./components/card.js";
+import {packagesForm} from "./components/form.js";
 
 //function to get the cards on the DOM
 // .forEach()
@@ -80,39 +85,77 @@ const createId = (array) => {
   }
 }
 
-const overviewForm = document.querySelector('form');
 
-const createPin = (event) => {
-  event.preventDefault();
+//QUERY SELECTORS
+const stars = document.querySelector(`#stars`);
+const starsForm = document.querySelector('#starsForm');
+const submitButton = document.querySelector('#submit');
+const starButton = document.querySelector(`#starButton`);
 
-const newPin = {
-  id: createId(repoList),
-  name: document.querySelector("#name").value,
-  description: document.querySelector("#description").value,
-};
-
-console.log(newPin);
-repoList.push(newPin);
-renderOverviewCards(repoList);
-
-form.reset();
+//CARD RENDER
+const renderStars = (array) => {
+  let refStuff = "";
+  array.forEach((item) => {
+    refStuff += starCard(item);
+  })
+  renderToDom(`#stars`, refStuff);
 }
 
-form.addEventListener('submit', createPin);
-    
+//CREATE ID
+const createId = (array) => {
+  if (array.length) {
+    const idArray = array.map(el => el.id);
+    return Math.max(...idArray) + 1;
+  } else {
+    return 0;
+  }
+}
 
+//STARRED REPOS
+const starredRepos = repoList.filter(repo => repo.starred === true);
 
-import {packages} from "./data/reference.js";
-import {packageCard} from "./components/card.js";
-import {renderToDom} from "./utils/renderToDom.js";
-import {packagesForm} from "./components/form.js";
+// renderStars(starredRepos);//STAR BUTTON + FORM RENDER
+starButton.addEventListener('click', () => {
+  starForm();
+  renderStars(starredRepos);
+})
 
-import {packages} from "./data/reference.js";
-import {packageCard} from "./components/card.js";
-import {renderToDom} from "./utils/renderToDom.js";
-import {packagesForm} from "./components/form.js";
+//CREATNG NEW STARRED REPOS
+const createStar = (e) => {
+  e.preventDefault();
+    const newStar = {
+      id: createId(starredRepos),
+      name: document.querySelector('#starName').value,
+      description: document.querySelector(`#starDescription`).value,
+      starred: true,
+      pinned: false
+    }
+  starredRepos.push(newStar);
+  document.querySelector('#submitStar').reset();
 
+  console.log(repoList);
+  console.log(starredRepos);
 
+  renderStars(starredRepos);
+}
+
+//SUBMIT EVENT LISTENER
+starsForm.addEventListener('submit', createStar);
+
+//REMOVE STAR
+stars.addEventListener('click', (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+
+    const index = starredRepos.findIndex(e => e.id === Number(id));
+    const removed = starredRepos.splice(index, 1);
+
+    starForm();
+    renderStars(starredRepos);
+  }
+});
+
+//PACKAGES//
 const renderCards = (array) => {
     let refStuff = "";
 

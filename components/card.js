@@ -1,28 +1,40 @@
 //Bootstrap cards: https://getbootstrap.com/docs/4.0/components/card/
 
-export const overviewCard = (object) => {
-
-	return `
+export const card = (object) => {
+  return `
   <div class="card">
-  <h5 class="card-header">${object.name}</h5>
+  <h5 class="card-header">Featured</h5>
   <div class="card-body">
-    <h5 class="card-title">${object.description}</h5>
-    <p class="card-text"></p>
-    
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
   `;
 };
 
-export const packageCard = (object) => {
+
+export const starCard = (object) => {
+  return `<div class="card">
+  <h5 class="card-header">${object.name}</h5>
+  <div class="card-body">
+    <p class="card-text">${object.description}</p>
+    <button id="delete--${object.id}" class="btn btn-primary">&#x2605;Remove Star</button>
+  </div>
+</div>
+  `
+}
+
+
+export const packageCard = (obj) => {
   return `
 
   <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${object.name}</h5>
-    <p class="card-text">${object.description}.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div
+    <h5 class="card-title">${obj.name}</h5>
+    <p class="card-text">${obj.description}</p>
+    <a href="#" id="create-proj" class="btn btn-primary">Learn more</a>
+  </div>
 </div>
   `;
 };
