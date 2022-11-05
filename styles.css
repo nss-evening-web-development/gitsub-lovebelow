@@ -1,3 +1,65 @@
 body {
     background-color: lightsteelblue;
 }
+
+/* #navigation {
+    display: flex;
+    justify-content: center;
+} */
+
+#pinned {
+    display: flex;
+}
+
+#overviewpage {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    margin: 40px;
+}
+
+#profile, #pinned, #form {
+    padding: 40px;
+    margin: 40px;
+}
+
+card {
+    padding: 20px;
+    margin: 20px;
+}
+
+.card {
+    margin: 20px;
+}
+
+.form-floating {
+    margin: 20px;
+}
+
+.btn-success {
+    margin-left: 20px;
+}
+
+img {
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+#profile {
+    width: 250px;
+}
+
+p, a {
+    font-size: 12px;
+}
+
+.follow, .sponsor {
+    background-color: lightgray;
+    font-size: 12px;
+    width: 70px;
+    margin: 5px;
+}
+
+#contact {
+    margin-top: 20px;
+}
