@@ -43,8 +43,7 @@ form.addEventListener("submit", addRepo);
 // 	renderToDom(repoList);
 // };
 // StartApp();
-
-import { card } from "./components/card.js";
+import { overviewCard } from "./components/card.js";
 import { formOnDom } from "./components/form.js";
 import { repoList } from "./data/reference.js";
 import { renderToDom } from "./utils/renderToDom.js";
@@ -54,7 +53,7 @@ const renderOverviewCards = (array) => {
   let refStuff = "";
 
   array.forEach((item) => {
-    refStuff += card(item);
+    refStuff += overviewCard(item);
   })
   renderToDom("#pinned", refStuff);
 };
@@ -103,6 +102,10 @@ form.addEventListener('submit', createPin);
     
 
 
+import {packages} from "./data/reference.js";
+import {packageCard} from "./components/card.js";
+import {renderToDom} from "./utils/renderToDom.js";
+import {packagesForm} from "./components/form.js";
 
 import {packages} from "./data/reference.js";
 import {packageCard} from "./components/card.js";

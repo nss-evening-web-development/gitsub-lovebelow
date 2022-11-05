@@ -2,13 +2,9 @@ body {
     background-color: lightsteelblue;
 }
 
-/* #navigation {
-    display: flex;
-    justify-content: center;
-} */
-
 #pinned {
     display: flex;
+    flex: wrap;
 }
 
 #overviewpage {
