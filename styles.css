@@ -63,3 +63,28 @@ p, a {
 #contact {
     margin-top: 20px;
 }
+
+#package-page {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#stars {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+}
+
+#repoform {
+    padding: 20px;
+    margin: 20px;
+}
+
+#repoSubmit {
+    margin-top: 40px;
+}
