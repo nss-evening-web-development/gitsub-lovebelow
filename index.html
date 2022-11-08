@@ -13,55 +13,76 @@
 
 <body>
     
-    <div id="navigation">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">Overview</a>
-                <a class="nav-item nav-link" href="#">Repositories</a>
-                <a class="nav-item nav-link" href="#">Projects</a>
-                <a class="nav-item nav-link" href="#">Packages</a>
-                <a class="nav-item nav-link" id="starButton" href="#">Stars</a>
-            </div>
-            </div>
-        </nav>
-    </div>
+  <div id="navigation">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <a class="nav-item nav-link" id="overviewButton" href="#">Overview</a>
+              <a class="nav-item nav-link" 
+              id="repoButton" href="#">Repositories</a>
+              <a class="nav-item nav-link" id="projectButton" href="#">Projects</a>
+              <a class="nav-item nav-link" id="packagesButton" href="#">Packages</a>
+              <a class="nav-item nav-link" 
+              id="starButton" href="#">Stars</a>
+          </div>
+          </div>
+      </nav>
+  </div>
         
-    <div id="overviewpage">
-        <div id="profile">
-        <img src="https://cdn.dribbble.com/users/2595531/screenshots/5863168/doodlebob.gif" alt="doodlebob" width="200px" height="200px">
-            <h3>Doodlebob</h3>
-            <p>DoodleBob is a living two-dimensional drawing resembling SpongeBob SquarePants, appearing in the episodes "Frankendoodle" and "Doodle Dimension" and the video game Drawn to Life: SpongeBob SquarePants Edition.</p>
-            <div id="socials">
-                <button class="btn follow">Follow</button>
-                <button class="btn sponsor">Sponsor</button>
-            </div>
-            <div id="contact">
-                <p>Voiced by: Paul Tibbitt</p>
-                <p>Species: Doodle</p>
-                <p></p><a href="https://nickelodeon.fandom.com/wiki/DoodleBob"> Website</a></p>
-            </div>
+  <div id="overviewpage">
+    <div id="profile">
+    <img src="https://cdn.dribbble.com/users/2595531/screenshots/5863168/doodlebob.gif" alt="doodlebob" width="200px" height="200px">
+        <h2>Doodlebob</h2>
+        <p>DoodleBob is a living two-dimensional drawing resembling SpongeBob SquarePants, appearing in the episodes "Frankendoodle" and "Doodle Dimension" and the video game Drawn to Life: SpongeBob SquarePants Edition.</p>
+        <div id="socials">
+            <button class="btn follow">Follow</button>
+            <button class="btn sponsor">Sponsor</button>
         </div>
-        <div id="pinned"></div>
-        <div id="project-list">
-            <div id="project-cards"></div>
-            <div id="project-form"></div>
+        <div id="contact">
+            <p>Voiced by: Paul Tibbitt</p>
+            <p>Species: Doodle</p>
+            <p></p><a href="https://nickelodeon.fandom.com/wiki/DoodleBob"> Website</a></p>
         </div>
-        <div id="new-project"></div>
-        <div id="stars"></div>
-        <div id="starsForm"></div>
-
     </div>
-    <div id="package-page"></div>
-    <div id="package-form"></div>
 
-		<div id=" repositorypage">
-			<form id="repoform"></form>
-			<div id="cards"></div>
-		</div>
+    <div id="overviewDiv">
+      <h4>Pinned Projects</h4>
+      <div id="pinned"></div>
+      <h4>Add Project</h4>
+      <form id="overviewForm"></form>
+    </div>
+
+    <div id="packageDiv">
+      <div id="package-page"></div>
+      <div id="package-form"></div>
+    </div>
+      
+    <div id="starDiv">
+      <div id="stars"></div>
+      <div id="starsForm"></div>
+    </div>
+      
+    <div id="repoDiv">
+      <form id="repoform"></form>
+      <div id="cards"></div>
+    </div>
+
+  </div>
+
+  <!-- <div id="starcards">
+   
+  </div> -->
+
+
+    
+<!--   
+  <div id="repocards"> -->
+    
+  </div>
+ 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>

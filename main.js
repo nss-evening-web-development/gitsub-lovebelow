@@ -1,10 +1,14 @@
 import { repoList } from "./data/reference.js";
 import { card } from "./components/card.js";
 import { repoFormonDom } from "./components/form.js";
-import {packages} from "./data/reference.js";
-import {packageCard} from "./components/card.js";
-import {renderToDom} from "./utils/renderToDom.js";
-import {packagesForm} from "./components/form.js";
+import { packages} from "./data/reference.js";
+import { packageCard} from "./components/card.js";
+import { renderToDom} from "./utils/renderToDom.js";
+import { packagesForm} from "./components/form.js";
+import { overviewCard } from "./components/card.js";
+import { formOnDom } from "./components/form.js";
+import { starCard } from "./components/card.js";
+import { starForm } from "./components/form.js";
 
 //function to get the cards on the DOM
 // .forEach()
@@ -15,14 +19,14 @@ const renderRepoCards = (array) => {
 	});
 	renderToDom("#cards", refStuff);
 };
-renderRepoCards(repoList);
+// renderRepoCards(repoList);
 
 const formFill = () => {
 	const domString = repoFormonDom;
 
 	renderToDom("#repoform", domString);
 };
-formFill(repoFormonDom);
+// formFill(repoFormonDom);
 
 const form = document.querySelector("#repoform");
 
@@ -40,34 +44,36 @@ const addRepo = (event) => {
 };
 
 form.addEventListener("submit", addRepo);
-//StartApp
-// const StartApp = () => {
-// 	renderToDom(repoList);
-// };
-// StartApp();
 
-console.log('Love!')
+//Repo render on click
+const repoButton = document.querySelector('#repoButton');
 
+const overviewDiv = document.querySelector('#overviewDiv');
 
-//render overview cards to DOM
+repoButton.addEventListener('click', () => {
+  overviewDiv.style.display = "none";
+  formFill(repoFormonDom);
+  renderRepoCards(repoList);
+})
+
+//Render Overview Cards to DOM
 const renderOverviewCards = (array) => {
-  let refStuff = "";
+  let refsStuff = "";
 
   array.forEach((item) => {
-    refStuff += overviewCard(item);
+    refsStuff += overviewCard(item);
   })
-  renderToDom("#pinned", refStuff);
+  renderToDom("#pinned", refsStuff);
 };
 renderOverviewCards(repoList);
 
-
+//Render Overview Form to DOM
 const formOverview = () => {
   const domString = formOnDom;
 
-  renderToDom('#form', domString)
+  renderToDom('#overviewForm', domString)
 };
-formOverview(formOnDom)
-
+formOverview(formOnDom);
 
 const createOverviewId = (array) => {
   if (array.length) {
@@ -79,7 +85,7 @@ const createOverviewId = (array) => {
   } else {
     return 0;
   }
-}
+};
 
 const overviewForm = document.querySelector('form');
 
@@ -101,76 +107,15 @@ overviewForm.reset();
 
 overviewForm.addEventListener('submit', createPin);
 
+//Overview Query Selectors
+const overviewButton = document.querySelector(`#overviewButton`);
 
-
-//QUERY SELECTORS
-const stars = document.querySelector(`#stars`);
-const starsForm = document.querySelector('#starsForm');
-const submitButton = document.querySelector('#submit');
-const starButton = document.querySelector(`#starButton`);
-
-//CARD RENDER
-const renderStars = (array) => {
-  let refStuff = "";
-  array.forEach((item) => {
-    refStuff += starCard(item);
-  })
-  renderToDom(`#stars`, refStuff);
-}
-
-//CREATE ID
-const createId = (array) => {
-  if (array.length) {
-    const idArray = array.map(el => el.id);
-    return Math.max(...idArray) + 1;
-  } else {
-    return 0;
-  }
-}
-
-//STARRED REPOS
-const starredRepos = repoList.filter(repo => repo.starred === true);
-
-// renderStars(starredRepos);//STAR BUTTON + FORM RENDER
-starButton.addEventListener('click', () => {
-  starForm();
-  renderStars(starredRepos);
-})
-
-//CREATNG NEW STARRED REPOS
-const createStar = (e) => {
-  e.preventDefault();
-    const newStar = {
-      id: createId(starredRepos),
-      name: document.querySelector('#starName').value,
-      description: document.querySelector(`#starDescription`).value,
-      starred: true,
-      pinned: false
-    }
-  starredRepos.push(newStar);
-  document.querySelector('#submitStar').reset();
-
-  console.log(repoList);
-  console.log(starredRepos);
-
-  renderStars(starredRepos);
-}
-
-//SUBMIT EVENT LISTENER
-starsForm.addEventListener('submit', createStar);
-
-//REMOVE STAR
-stars.addEventListener('click', (e) => {
-  if (e.target.id.includes("delete")) {
-    const [, id] = e.target.id.split("--");
-
-    const index = starredRepos.findIndex(e => e.id === Number(id));
-    const removed = starredRepos.splice(index, 1);
-
-    starForm();
-    renderStars(starredRepos);
-  }
+// Overview and Overview Form Render
+overviewButton.addEventListener('click', () => {
+  renderOverviewCards(repoList);
+  formOverview(formOnDom);
 });
+
 
 //PACKAGES//
 const renderCards = (array) => {
@@ -183,7 +128,6 @@ array.forEach ((item) => {
     renderToDom("#package-page", refStuff);
 };
 
-renderCards(packages);
 
 const packageOnDom = () => {
     const packagesForm = document.querySelector("#package-form")
@@ -204,7 +148,97 @@ const packageOnDom = () => {
     })
 };
 
-renderToDom("#package-form", packagesForm);
-packages();
-packageOnDom();
-packagesForm();
+// renderToDom("#package-form", packagesForm);
+// packages();
+packageOnDom(packages);
+// packagesForm();
+
+//Packages render on click
+const packagesButton = document.querySelector('#packagesButton');
+
+const repoDiv = document.querySelector('#repoDiv');
+// const starDiv = document.querySelector('#starDiv');
+
+packagesButton.addEventListener('click', () => {
+  overviewDiv.style.display = "none";
+  repoDiv.style.display = "none";
+  // starDiv.style.display = "none"
+  renderToDom("#package-form", packagesForm);
+  renderCards(packages);
+})
+
+
+//QUERY SELECTORS
+const stars = document.querySelector(`#stars`);
+const starsForm = document.querySelector('#starsForm');
+const starButton = document.querySelector(`#starButton`);
+
+
+//CREATE ID
+const createId = (array) => {
+  if (array.length) {
+    const idArray = array.map(el => el.id);
+    return Math.max(...idArray) + 1;
+  } else {
+    return 0;
+  }
+}
+
+//STARS RENDER
+const renderStars = (array) => {
+  let refStuff = "";
+  array.forEach((item) => {
+    refStuff += starCard(item);
+  })
+  renderToDom(`#stars`, refStuff);
+}
+
+// const starDiv = document.querySelector('#starDiv');
+const packageDiv = document.querySelector('#packageDiv');
+
+// renderStars(starredRepos);//STAR BUTTON + FORM RENDER
+starButton.addEventListener('click', () => {
+  repoDiv.style.display = "none";
+  overviewDiv.style.display = "none";
+  packageDiv.style.display = "none";
+  starForm();
+  renderStars(starredRepos);
+  console.log('hi!');
+})
+
+//CREATNG NEW STARRED REPOS
+const createStar = (e) => {
+  e.preventDefault();
+    const newStar = {
+      id: createId(starredRepos),
+      name: document.querySelector('#starName').value,
+      description: document.querySelector(`#starDescription`).value,
+      starred: true,
+      pinned: false
+    }
+  starredRepos.push(newStar);
+  document.querySelector('#submitStar').reset();
+
+  console.log(repoList);
+  console.log(starredRepos);
+  renderStars(starredRepos);
+}
+
+//SUBMIT EVENT LISTENER
+starsForm.addEventListener('submit', createStar);
+
+//REMOVE STAR
+stars.addEventListener('click', (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+
+    const index = starredRepos.findIndex(e => e.id === Number(id));
+    const removed = starredRepos.splice(index, 1);
+
+    starForm();
+    renderStars(starredRepos);
+  }
+});
+
+//STARRED REPOS
+const starredRepos = repoList.filter(repo => repo.starred === true);
