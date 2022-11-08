@@ -40,17 +40,18 @@ export const repoFormonDom = `
     <input
 			type="text"
 			class="form-control"
-			id="description"
+			id="descriptions"
 			placeholder="Add A Description"
 			required
 		/>
-		<button type="submit" class="btn btn-success" placeholder="Add New Repository">
+		<button type="submit" id="repoSubmit" class="btn btn-success" placeholder="Add New Repository">
 			New Repo
 		</button>
 	</div>`;
    
 export const formOnDom = 
-  `<div class="form-floating mb-3">
+  `<h4>Add Project</h4>
+  <div class="form-floating mb-3">
   <input type="text" class="form-control" id="name" placeholder="Name" required>
   <label for="floatingInput">Name</label>
 </div>

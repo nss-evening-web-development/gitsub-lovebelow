@@ -30,6 +30,8 @@ card {
 
 .card {
     margin: 20px;
+    width: 200px;
+    height: 200px;
 }
 
 .form-floating {
@@ -87,4 +89,21 @@ p, a {
 
 #repoSubmit {
     margin-top: 40px;
+}
+
+#footer {
+    /* display: flex;
+    justify-content: center; */
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+    position: absolute;
+    bottom: 0;
+    background-color: aliceblue;
+    width: 100%;
+    text-align: center;
+}
+
+a {
+    padding: 30px;
 }

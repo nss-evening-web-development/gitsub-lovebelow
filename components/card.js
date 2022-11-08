@@ -42,7 +42,7 @@ export const overviewCard = (object) => {
   <div class="card-body">
     <h5 class="card-title name">${object.name}</h5>
     <p class="card-text description">${object.description}</p>
-    <a href="#" id="btn--${object.id}" class="btn btn-primary">Go somewhere</a>
+    <a href="#" id="btn--${object.id}" class="btn btn-primary">Unpin</a>
   </div>
   </div>
   `

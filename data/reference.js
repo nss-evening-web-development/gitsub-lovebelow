@@ -59,6 +59,49 @@ export const repoList = [
 	},
 ];
 
+export const reposList = [
+	{
+		id: 1,
+		name: "repo1",
+		description: "description",
+    page: "overview",
+		starred: true,
+		pinned: true,
+	},
+	{
+		id: 2,
+		name: "repo2",
+		description: "description",
+    page: "overview",
+		starred: false,
+		pinned: true,
+	},
+	{
+		id: 3,
+		name: "repo3",
+		description: "description",
+    page: "overview",
+		starred: true,
+		pinned: false,
+	},
+	{
+		id: 4,
+		name: "repo4",
+		description: "description",
+    page: "overview",
+		starred: false,
+		pinned: false,
+	},
+	{
+		id: 5,
+		name: "repo5",
+		description: "description",
+    page: "overview",
+		starred: false,
+		pinned: true,
+	},
+];
+
 export const packages = [
 	{
 		id: 1,

@@ -1,4 +1,5 @@
 import { repoList } from "./data/reference.js";
+import { reposList } from "./data/reference.js";
 import { card } from "./components/card.js";
 import { repoFormonDom } from "./components/form.js";
 import { packages} from "./data/reference.js";
@@ -19,14 +20,12 @@ const renderRepoCards = (array) => {
 	});
 	renderToDom("#cards", refStuff);
 };
-// renderRepoCards(repoList);
 
 const formFill = () => {
 	const domString = repoFormonDom;
 
 	renderToDom("#repoform", domString);
 };
-// formFill(repoFormonDom);
 
 const form = document.querySelector("#repoform");
 
@@ -35,7 +34,7 @@ const addRepo = (event) => {
 	const repoObj = {
 		id: repoList.length + 1,
 		name: document.querySelector("#addRepo").value,
-		description: document.querySelector("#description").value,
+		description: document.querySelector("#descriptions").value,
 	};
 	console.log("hey");
 	repoList.push(repoObj);
@@ -48,10 +47,15 @@ form.addEventListener("submit", addRepo);
 //Repo render on click
 const repoButton = document.querySelector('#repoButton');
 
-const overviewDiv = document.querySelector('#overviewDiv');
-
 repoButton.addEventListener('click', () => {
-  overviewDiv.style.display = "none";
+  document.querySelector("#pinned").innerHTML = "";
+  document.querySelector("#overviewForm").innerHTML = "";
+  document.querySelector("#package-page").innerHTML = "";
+  document.querySelector("#package-form").innerHTML = "";
+  document.querySelector("#stars").innerHTML = "";
+  document.querySelector("#starsForm").innerHTML = "";
+  document.querySelector("#repoform").innerHTML = "";
+  document.querySelector("#cards").innerHTML = "";
   formFill(repoFormonDom);
   renderRepoCards(repoList);
 })
@@ -65,7 +69,7 @@ const renderOverviewCards = (array) => {
   })
   renderToDom("#pinned", refsStuff);
 };
-renderOverviewCards(repoList);
+renderOverviewCards(reposList);
 
 //Render Overview Form to DOM
 const formOverview = () => {
@@ -93,14 +97,14 @@ const createPin = (event) => {
   event.preventDefault();
 
 const newPin = {
-  id: createOverviewId(repoList),
+  id: createOverviewId(reposList),
   name: document.querySelector("#name").value,
   description: document.querySelector("#description").value,
 };
 
 console.log(newPin);
-repoList.push(newPin);
-renderOverviewCards(repoList);
+reposList.push(newPin);
+renderOverviewCards(reposList);
 
 overviewForm.reset();
 }
@@ -112,7 +116,15 @@ const overviewButton = document.querySelector(`#overviewButton`);
 
 // Overview and Overview Form Render
 overviewButton.addEventListener('click', () => {
-  renderOverviewCards(repoList);
+  document.querySelector("#pinned").innerHTML = "";
+  document.querySelector("#overviewForm").innerHTML = "";
+  document.querySelector("#package-page").innerHTML = "";
+  document.querySelector("#package-form").innerHTML = "";
+  document.querySelector("#stars").innerHTML = "";
+  document.querySelector("#starsForm").innerHTML = "";
+  document.querySelector("#repoform").innerHTML = "";
+  document.querySelector("#cards").innerHTML = "";
+  renderOverviewCards(reposList);
   formOverview(formOnDom);
 });
 
@@ -148,6 +160,7 @@ const packageOnDom = () => {
     })
 };
 
+
 // renderToDom("#package-form", packagesForm);
 // packages();
 packageOnDom(packages);
@@ -156,23 +169,23 @@ packageOnDom(packages);
 //Packages render on click
 const packagesButton = document.querySelector('#packagesButton');
 
-const repoDiv = document.querySelector('#repoDiv');
-// const starDiv = document.querySelector('#starDiv');
-
 packagesButton.addEventListener('click', () => {
-  overviewDiv.style.display = "none";
-  repoDiv.style.display = "none";
-  // starDiv.style.display = "none"
+  document.querySelector("#pinned").innerHTML = "";
+  document.querySelector("#overviewForm").innerHTML = "";
+  document.querySelector("#package-page").innerHTML = "";
+  document.querySelector("#package-form").innerHTML = "";
+  document.querySelector("#stars").innerHTML = "";
+  document.querySelector("#starsForm").innerHTML = "";
+  document.querySelector("#repoform").innerHTML = "";
+  document.querySelector("#cards").innerHTML = "";
   renderToDom("#package-form", packagesForm);
   renderCards(packages);
 })
-
 
 //QUERY SELECTORS
 const stars = document.querySelector(`#stars`);
 const starsForm = document.querySelector('#starsForm');
 const starButton = document.querySelector(`#starButton`);
-
 
 //CREATE ID
 const createId = (array) => {
@@ -193,14 +206,17 @@ const renderStars = (array) => {
   renderToDom(`#stars`, refStuff);
 }
 
-// const starDiv = document.querySelector('#starDiv');
-const packageDiv = document.querySelector('#packageDiv');
 
 // renderStars(starredRepos);//STAR BUTTON + FORM RENDER
 starButton.addEventListener('click', () => {
-  repoDiv.style.display = "none";
-  overviewDiv.style.display = "none";
-  packageDiv.style.display = "none";
+  document.querySelector("#pinned").innerHTML = "";
+  document.querySelector("#overviewForm").innerHTML = "";
+  document.querySelector("#package-page").innerHTML = "";
+  document.querySelector("#package-form").innerHTML = "";
+  document.querySelector("#stars").innerHTML = "";
+  document.querySelector("#starsForm").innerHTML = "";
+  document.querySelector("#repoform").innerHTML = "";
+  document.querySelector("#cards").innerHTML = "";
   starForm();
   renderStars(starredRepos);
   console.log('hi!');
