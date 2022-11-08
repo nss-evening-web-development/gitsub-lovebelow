@@ -1,10 +1,10 @@
 import { repoList } from "./data/reference.js";
 import { card } from "./components/card.js";
 import { repoFormonDom } from "./components/form.js";
-import { packages} from "./data/reference.js";
-import { packageCard} from "./components/card.js";
-import { renderToDom} from "./utils/renderToDom.js";
-import { packagesForm} from "./components/form.js";
+import { packages } from "./data/reference.js";
+import { packageCard } from "./components/card.js";
+import { renderToDom } from "./utils/renderToDom.js";
+import { packagesForm } from "./components/form.js";
 import { overviewCard } from "./components/card.js";
 import { formOnDom } from "./components/form.js";
 import { starCard } from "./components/card.js";
@@ -48,17 +48,24 @@ form.addEventListener("submit", addRepo);
 //Repo render on click
 const repoButton = document.querySelector('#repoButton');
 
-const overviewDiv = document.querySelector('#overviewDiv');
+// const overviewDiv = document.querySelector('#overviewDiv');
 
 repoButton.addEventListener('click', () => {
-  overviewDiv.style.display = "none";
+  document.getElementById(`pinned`).innerHTML = "";
+  document.getElementById(`overviewForm`).innerHTML = "";
+  document.getElementById(`package-page`).innerHTML = "";
+  document.getElementById(`package-form`).innerHTML = "";
+  document.getElementById(`stars`).innerHTML = "";
+  document.getElementById(`starsForm`).innerHTML = "";
+  document.getElementById(`repoform`).innerHTML = "";
+  document.getElementById(`cards`).innerHTML = "";
   formFill(repoFormonDom);
   renderRepoCards(repoList);
 })
 
 //Render Overview Cards to DOM
 const renderOverviewCards = (array) => {
-  let refsStuff = "";
+  let refsStuff = "<h4>Pinned Projects</h4>";
 
   array.forEach((item) => {
     refsStuff += overviewCard(item);
@@ -112,6 +119,14 @@ const overviewButton = document.querySelector(`#overviewButton`);
 
 // Overview and Overview Form Render
 overviewButton.addEventListener('click', () => {
+  document.getElementById(`pinned`).innerHTML = "";
+  document.getElementById(`overviewForm`).innerHTML = "";
+  document.getElementById(`package-page`).innerHTML = "";
+  document.getElementById(`package-form`).innerHTML = "";
+  document.getElementById(`stars`).innerHTML = "";
+  document.getElementById(`starsForm`).innerHTML = "";
+  document.getElementById(`repoform`).innerHTML = "";
+  document.getElementById(`cards`).innerHTML = "";
   renderOverviewCards(repoList);
   formOverview(formOnDom);
 });
@@ -160,9 +175,14 @@ const repoDiv = document.querySelector('#repoDiv');
 // const starDiv = document.querySelector('#starDiv');
 
 packagesButton.addEventListener('click', () => {
-  overviewDiv.style.display = "none";
-  repoDiv.style.display = "none";
-  // starDiv.style.display = "none"
+  document.getElementById(`pinned`).innerHTML = "";
+  document.getElementById(`overviewForm`).innerHTML = "";
+  document.getElementById(`package-page`).innerHTML = "";
+  document.getElementById(`package-form`).innerHTML = "";
+  document.getElementById(`stars`).innerHTML = "";
+  document.getElementById(`starsForm`).innerHTML = "";
+  document.getElementById(`repoform`).innerHTML = "";
+  document.getElementById(`cards`).innerHTML = "";
   renderToDom("#package-form", packagesForm);
   renderCards(packages);
 })
@@ -186,21 +206,23 @@ const createId = (array) => {
 
 //STARS RENDER
 const renderStars = (array) => {
-  let refStuff = "";
+  let refStuff = "<h2>Starred Repositories</h2>";
   array.forEach((item) => {
     refStuff += starCard(item);
   })
   renderToDom(`#stars`, refStuff);
 }
 
-// const starDiv = document.querySelector('#starDiv');
-const packageDiv = document.querySelector('#packageDiv');
-
 // renderStars(starredRepos);//STAR BUTTON + FORM RENDER
 starButton.addEventListener('click', () => {
-  repoDiv.style.display = "none";
-  overviewDiv.style.display = "none";
-  packageDiv.style.display = "none";
+  document.getElementById(`pinned`).innerHTML = "";
+  document.getElementById(`overviewForm`).innerHTML = "";
+  document.getElementById(`package-page`).innerHTML = "";
+  document.getElementById(`package-form`).innerHTML = "";
+  document.getElementById(`stars`).innerHTML = "";
+  document.getElementById(`starsForm`).innerHTML = "";
+  document.getElementById(`repoform`).innerHTML = "";
+  document.getElementById(`cards`).innerHTML = "";
   starForm();
   renderStars(starredRepos);
   console.log('hi!');

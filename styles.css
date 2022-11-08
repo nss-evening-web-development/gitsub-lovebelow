@@ -63,3 +63,13 @@ p, a {
 #contact {
     margin-top: 20px;
 }
+
+#footer {
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+a {
+    padding: 30px;
+}
