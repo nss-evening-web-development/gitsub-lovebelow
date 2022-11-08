@@ -4,6 +4,7 @@ body {
 
 #pinned {
     display: flex;
+    flex-wrap: wrap;
 }
 
 #overviewpage {
@@ -13,9 +14,13 @@ body {
     margin: 40px;
 }
 
-#profile, #pinned, #form {
+#profile, #pinned, #overviewForm {
     padding: 40px;
     margin: 40px;
+}
+
+h4 {
+    padding-left: 80px;
 }
 
 card {

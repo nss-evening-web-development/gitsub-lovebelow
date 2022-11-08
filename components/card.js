@@ -12,6 +12,7 @@ export const card = (object) => {
 </div>
   `;
 };
+
 export const starCard = (object) => {
   return `<div class="card">
   <h5 class="card-header">${object.name}</h5>
@@ -32,6 +33,19 @@ export const packageCard = (obj) => {
   </div>
 </div>
   `;
+};
+
+export const overviewCard = (object) => {
+  return `
+  <div class="card">
+  <h5 class="card-header">Pinned</h5>
+  <div class="card-body">
+    <h5 class="card-title name">${object.name}</h5>
+    <p class="card-text description">${object.description}</p>
+    <a href="#" id="btn--${object.id}" class="btn btn-primary">Go somewhere</a>
+  </div>
+  </div>
+  `
 };
 
 export const projectCard = (object) => {
