@@ -20,7 +20,7 @@ body {
 }
 
 h4 {
-    padding-left: 80px;
+    padding-left: 20px;
 }
 
 card {
@@ -69,17 +69,20 @@ p, a {
 #package-page {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 80px;
 }
 
 #stars {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 80px;
 }
 
 #cards {
     display: flex;
     flex-wrap: wrap;
     width: auto;
+    margin-top: 80px;
 }
 
 #repoform {
@@ -92,16 +95,13 @@ p, a {
 }
 
 #footer {
-    /* display: flex;
-    justify-content: center; */
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto; */
     position: absolute;
     bottom: 0;
     background-color: aliceblue;
     width: 100%;
     text-align: center;
+    height: 40px;
+    font-size: 20px;
 }
 
 a {

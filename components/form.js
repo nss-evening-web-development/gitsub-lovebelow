@@ -50,7 +50,7 @@ export const repoFormonDom = `
 	</div>`;
    
 export const formOnDom = 
-  `<h4>Add Project</h4>
+  `<h4>Pin Project</h4>
   <div class="form-floating mb-3">
   <input type="text" class="form-control" id="name" placeholder="Name" required>
   <label for="floatingInput">Name</label>

@@ -47,14 +47,14 @@ export const repoList = [
 		id: 4,
 		name: "repo4",
 		description: "description",
-		starred: false,
+		starred: true,
 		pinned: false,
 	},
 	{
 		id: 5,
 		name: "repo5",
 		description: "description",
-		starred: false,
+		starred: true,
 		pinned: true,
 	},
 ];
